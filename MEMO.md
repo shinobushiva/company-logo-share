@@ -15,6 +15,19 @@ serverless offline
 
 serverless deploy --aws-profile izumiken
 
-## readings
+yarn add @nestjs/graphql
+nest g resource users
+  graphql(schema first)
 
-https://zenn.dev/naonao70/articles/a91d8835f1832b
+npm install -g typeorm
+yarn add @nestjs/typeorm typeorm mysql2 reflect-metadata
+
+yarn add -D typeorm-extension
+
+yarn db:create
+
+npx ts-node ./node_modules/.bin/typeorm migration:generate -d ./src/config/ormdatasource.ts user
+
+## readings
+- https://zenn.dev/naonao70/articles/a91d8835f1832b
+- https://zenn.dev/msksgm/articles/20211107-typeorm-ormconfig
