@@ -21,7 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "db:create": "ts-node ./node_modules/typeorm-extension/dist/cli/index.js -f ./src/config/ormconfig.ts db:create",
     "db:drop": "ts-node ./node_modules/typeorm-extension/dist/cli/index.js -f ./src/config/ormconfig.ts db:drop",
-    "db:seed": "ts-node ./node_modules/typeorm-extension/dist/cli/index.js -f ./src/config/ormconfig.ts seed"
+    "db:seed": "ts-node ./node_modules/typeorm-extension/dist/cli/index.js -f ./src/config/ormconfig.ts seed",
+    "console": "ts-node -r tsconfig-paths/register src/console.ts"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
@@ -51,11 +52,13 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "await-outside": "^3.0.0",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.2.5",
     "prettier": "^2.6.2",
+    "purdy": "^3.5.1",
     "serverless-layers": "^2.5.4",
     "serverless-offline": "^8.7.0",
     "source-map-support": "^0.5.20",

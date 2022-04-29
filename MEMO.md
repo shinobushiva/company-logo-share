@@ -30,6 +30,7 @@ npx ts-node ./node_modules/.bin/typeorm migration:generate src/database/migratio
 npx ts-node ./node_modules/.bin/typeorm migration:run -d src/config/ormdatasource
 npx ts-node ./node_modules/.bin/typeorm migration:revert -d src/config/ormdatasource
 
+yarn add -D purdy await-outside
 ## readings
 - https://zenn.dev/naonao70/articles/a91d8835f1832b
 - https://zenn.dev/msksgm/articles/20211107-typeorm-ormconfig
