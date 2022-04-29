@@ -13,16 +13,9 @@ const ormconfig: DataSourceOptions = {
   logging: false,
   connectTimeout: 30 * 1000,
   // acquireTimeout: 30 * 1000,
-  entities: [__dirname + '/dist/entity/**/*.ts'],
-  migrations: [__dirname + '/dist/migration/**/*.ts'],
+  entities: [process.cwd() + '/src/entity/**/*.ts'],
+  migrations: [process.cwd() + '/src/database/migrations/**/*.ts'],
   // 今回subscriberは扱いません。
   // subscribers: [__dirname + '/dist/subscriber/**/*.ts'],
-
-  // cli: {
-  //   entitiesDir: 'src/entity',
-  //   migrationsDir: 'src/migration',
-  //   // subscribersDir: 'src/subscriber'
-  // },
 }
-
 export default ormconfig

@@ -26,7 +26,9 @@ yarn add -D typeorm-extension
 
 yarn db:create
 
-npx ts-node ./node_modules/.bin/typeorm migration:generate -d ./src/config/ormdatasource.ts user
+npx ts-node ./node_modules/.bin/typeorm migration:generate src/database/migrations/create-user -d src/config/ormdatasource
+npx ts-node ./node_modules/.bin/typeorm migration:run -d src/config/ormdatasource
+npx ts-node ./node_modules/.bin/typeorm migration:revert -d src/config/ormdatasource
 
 ## readings
 - https://zenn.dev/naonao70/articles/a91d8835f1832b
