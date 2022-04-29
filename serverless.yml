@@ -1,16 +1,25 @@
 org: shinobushiva
 app: myapp
-service: aws-node-http-api-project
+service: company-logo-share-server
 frameworkVersion: '3'
 
 provider:
   name: aws
   runtime: nodejs14.x
+  region: ap-northeast-1
+  stage: dev
 
 functions:
-  hello:
-    handler: handler.hello
+  handler:
+    handler: dist/handler.handler
     events:
-      - httpApi:
-          path: /
-          method: get
+      - http:
+          cors: true
+          path: "/"
+          method: any
+      - http:
+          cors: true
+          path: "{proxy+}"
+          method: any
+plugins:
+  - serverless-offline
