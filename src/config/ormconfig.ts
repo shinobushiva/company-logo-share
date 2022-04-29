@@ -13,8 +13,8 @@ const ormconfig: DataSourceOptions = {
   logging: false,
   connectTimeout: 30 * 1000,
   // acquireTimeout: 30 * 1000,
-  entities: [process.cwd() + '/src/entity/**/*.ts'],
-  migrations: [process.cwd() + '/src/database/migrations/**/*.ts'],
+  entities: [process.cwd() + '/dist/src/entity/**/*.ts'],
+  migrations: [process.cwd() + '/dist/src/database/migrations/**/*.ts'],
   // 今回subscriberは扱いません。
   // subscribers: [__dirname + '/dist/subscriber/**/*.ts'],
 }
