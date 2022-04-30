@@ -21,5 +21,11 @@ functions:
           cors: true
           path: "{proxy+}"
           method: any
+    environment:
+      DB_HOST: ${env:DB_HOST}
+      DB_PORT: ${env:DB_PORT}
+      DB_USERNAME: ${env:DB_USERNAME}
+      DB_PASSWORD: ${env:DB_PASSWORD}
+      DB_DATABASE: ${env:DB_DATABASE}
 plugins:
   - serverless-offline

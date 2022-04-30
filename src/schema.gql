@@ -27,8 +27,8 @@ input CreateUserInput {
 }
 
 input UpdateUserInput {
-  firstName: String!
-  lastName: String!
-  age: Int!
+  firstName: String
+  lastName: String
+  age: Int
   id: Int!
 }

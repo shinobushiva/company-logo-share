@@ -6,17 +6,4 @@ import { Max, MaxLength, Min } from 'class-validator'
 export class UpdateUserInput extends PartialType(CreateUserInput) {
   @Field(() => Int)
   id: number
-
-  @MaxLength(255)
-  @Field()
-  firstName: string
-
-  @MaxLength(255)
-  @Field()
-  lastName: string
-
-  @Field(() => Int)
-  @Min(0)
-  @Max(200)
-  age: number
 }

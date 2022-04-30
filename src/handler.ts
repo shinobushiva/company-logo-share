@@ -21,15 +21,27 @@ import { Server } from 'http'
 import { ExpressAdapter } from '@nestjs/platform-express'
 import * as serverless from 'aws-serverless-express'
 import * as express from 'express'
+import { Logger } from '@nestjs/common'
+import { logger } from './common/middleware/logger.middleware'
 
 let cachedServer: Server
 
 async function bootstrapServer(): Promise<Server> {
+  // Logger.log('bootstrapServer')
   const expressApp = express()
   const adapter = new ExpressAdapter(expressApp)
-  const app = await NestFactory.create(AppModule, adapter)
+  // Logger.log('appModule')
+  const module = AppModule
+  // Logger.log('appModule:end')
+  // Logger.log('create')
+  const app = await NestFactory.create(module, adapter)
+  // app.use(logger)
+  // Logger.log('created1')
+  await NestFactory.createApplicationContext(module)
+  // Logger.log('created2')
   app.enableCors()
   await app.init()
+  // Logger.log('initialized')
   return serverless.createServer(expressApp)
 }
 

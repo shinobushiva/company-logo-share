@@ -1,16 +1,27 @@
 import { Injectable } from '@nestjs/common'
-import { InjectRepository } from '@nestjs/typeorm'
+import { User } from '../entity'
 import { Repository } from 'typeorm/repository/Repository'
 import { CreateUserInput } from './dto/create-user.input'
 import { UpdateUserInput } from './dto/update-user.input'
-import { User } from './entities/user.entity'
+import { ConnectionManager, getConnectionManager, getRepository } from 'typeorm'
 
 @Injectable()
 export class UsersService {
-  constructor(
-    @InjectRepository(User)
-    private userRepostiory: Repository<User>,
-  ) {}
+  get userRepostiory(): Repository<User> {
+    const connectionManager: ConnectionManager = getConnectionManager()
+    if (connectionManager.has('default')) {
+      const entityMetadata = connectionManager
+        .get('default')
+        .entityMetadatas.find((metadata) => {
+          return metadata.tableName === 'user'
+        })
+      if (entityMetadata) {
+        return getRepository(entityMetadata.name)
+      } else {
+        return null
+      }
+    }
+  }
 
   async create(createUserInput: CreateUserInput) {
     const user = this.userRepostiory.create(createUserInput)
