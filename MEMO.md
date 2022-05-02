@@ -33,7 +33,8 @@ npx ts-node ./node_modules/.bin/typeorm migration:run -d src/config/ormdatasourc
 npx ts-node ./node_modules/.bin/typeorm migration:revert -d src/config/ormdatasource
 
 yarn add -D purdy await-outside
-## readings
+
+### readings
 - https://zenn.dev/naonao70/articles/a91d8835f1832b
 - https://zenn.dev/msksgm/articles/20211107-typeorm-ormconfig
 - https://qiita.com/potato4d/items/64a1f518abdfe281ce01
@@ -41,3 +42,14 @@ yarn add -D purdy await-outside
 - https://zenn.dev/azukiazusa/articles/e84be9735d357e
 - https://www.kindacode.com/snippet/using-enum-type-in-typeorm/
 - https://www.wakuwakubank.com/posts/729-typeorm-migration/
+
+## terraform
+
+brew install tfenv
+tfenv --version
+tfenv list-remote
+tfenv install 1.1.9
+tfenv use 1.1.9
+
+### readings
+https://dev.classmethod.jp/articles/beginner-terraform-install-mac/
