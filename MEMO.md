@@ -10,7 +10,8 @@ yarn add -D @types/aws-serverless-express serverless-layers
 
 yarn add -D serverless-offline
 
-yarn bulid & serverless offline
+<!-- yarn bulid & serverless offline -->
+yarn build & yarn sls:offline
 
 serverless deploy --aws-profile izumiken
 
@@ -51,5 +52,19 @@ tfenv list-remote
 tfenv install 1.1.9
 tfenv use 1.1.9
 
+terraform init
+
+terraform plan --var-file=variables.tf
+
 ### readings
 https://dev.classmethod.jp/articles/beginner-terraform-install-mac/
+
+## serverless deploy with docker
+
+docker-compose run --rm serverless sh
+
+echo $(aws ecr get-login-password) | docker login --password-stdin --username AWS 535395497623.dkr.ecr.ap-northeast-1.amazonaws.com
+
+### readings
+https://zenn.dev/qazx7412/articles/fddbdd5bd6379e4587a3
+https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/images-test.html

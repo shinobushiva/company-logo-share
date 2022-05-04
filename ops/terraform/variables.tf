@@ -1,6 +1,6 @@
 variable "access_key" {}
 variable "secret_key" {}
-variable "aws_region" {
+variable "region" {
   default = "ap-northeast-1"
 }
 variable "name" {
@@ -24,20 +24,20 @@ variable "env" {
 #   default = "~/.ssh/scs-v2-master.pem"
 # }
 
-# variable "cidr_blocks" {
-#   default = "10.0.0.0/16"
-# }
+variable "cidr_blocks" {
+  default = "10.0.0.0/16"
+}
 
-# variable "db_identifier" {
-#   default = "scs-v2-dev"
-# }
+variable "db_identifier" {
+  default = "company-logo-share-dev"
+}
 
-# variable "db_storage" {
-#   default = "10"
-# }
+variable "db_storage" {
+  default = "10"
+}
 
-# variable "db_username" {
-#   default = "root"
-# }
+variable "db_username" {
+  default = "root"
+}
 
-# variable "db_password" {}
+variable "db_password" {}

@@ -39,3 +39,15 @@ lerna-debug.log*
 
 # .env
 .env
+
+# docker env
+docker.env
+
+# package directories
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# esbuild directories
+.esbuild
