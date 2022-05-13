@@ -68,3 +68,11 @@ echo $(aws ecr get-login-password) | docker login --password-stdin --username AW
 ### readings
 https://zenn.dev/qazx7412/articles/fddbdd5bd6379e4587a3
 https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/images-test.html
+
+
+### ローカルで docker で lambdaを動かす
+yarn build
+docker build -t company-logo-share_serverless .
+docker run --rm --name=company-logo-share_serverless -p 8080:8080 company-logo-share_serverless:latest
+docker run -it --entrypoint sh --rm --name=company-logo-share_serverless -p 8080:8080 company-logo-share_serverless:latest
+> /lambda-entrypoint.sh handler.hello
