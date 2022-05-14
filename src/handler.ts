@@ -5,6 +5,7 @@ import { Server } from 'http'
 import { ExpressAdapter } from '@nestjs/platform-express'
 import * as serverless from 'aws-serverless-express'
 import * as express from 'express'
+import { createConnection } from 'mysql2'
 
 let cachedServer: Server
 
@@ -34,6 +35,35 @@ export const hello: Handler = async (event: any) => {
     body: JSON.stringify(
       {
         message: 'Go Serverless v3.0! Your function executed successfully!',
+        input: event,
+      },
+      null,
+      2,
+    ),
+  }
+}
+
+export const createDatabase: Handler = async (event: any) => {
+  const options = {
+    host: process.env.DB_HOST,
+    user: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    port: parseInt(process.env.DB_PORT),
+  }
+  console.log(options)
+  const con = createConnection(options)
+  console.log('connection created')
+  const res = await con
+    .promise()
+    .query(`CREATE DATABASE IF NOT EXISTS \`${process.env.DB_DATABASE}\``)
+  console.log('res', res)
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify(
+      {
+        message: 'Cerate database success!',
+        result: res,
         input: event,
       },
       null,

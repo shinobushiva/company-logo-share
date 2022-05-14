@@ -6738,6 +6738,11 @@ serverless-offline@^8.7.0:
     velocityjs "^2.0.6"
     ws "^7.5.7"
 
+serverless-plugin-lambda-insights@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/serverless-plugin-lambda-insights/-/serverless-plugin-lambda-insights-1.5.0.tgz#f520fdd245d0df1324115ee1683b98a20104a1b1"
+  integrity sha512-6VlV7kjs493P8jM5hF2k4crF1mxB3sGUql6Nj0hyz7zOBxQWjrdcKTC8OAOxwiJOERgCHN2OqqetK3lTM2HvvQ==
+
 set-immediate-shim@~1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/set-immediate-shim/-/set-immediate-shim-1.0.1.tgz"

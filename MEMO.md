@@ -11,6 +11,7 @@ yarn add -D @types/aws-serverless-express serverless-layers
 yarn add -D serverless-offline
 
 <!-- yarn bulid & serverless offline -->
+export $(cat .env | grep -v ^# | xargs)
 yarn build & yarn sls:offline
 
 serverless deploy --aws-profile izumiken

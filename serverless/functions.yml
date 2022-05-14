@@ -1,22 +1,32 @@
 functions:
-  # handler:
-  #   handler: dist/handler.handler
-  #   events:
-  #     - http:
-  #         cors: true
-  #         path: "/"
-  #         method: any
-  #     - http:
-  #         cors: true
-  #         path: "{proxy+}"
-  #         method: any
-  #   environment:
-  #     DB_HOST: ${env:DB_HOST}
-  #     DB_PORT: ${env:DB_PORT}
-  #     DB_USERNAME: ${env:DB_USERNAME}
-  #     DB_PASSWORD: ${env:DB_PASSWORD}
-  #     DB_DATABASE: ${env:DB_DATABASE}
+  handler:
+    # lambdaInsights: true
+    image:
+      name: appimage
+      command:
+        - src/handler.handler
+    events:
+      - http:
+          cors: true
+          path: "/"
+          method: any
+      - http:
+          cors: true
+          path: "{proxy+}"
+          method: any
+    environment:
+      # DB_HOST: ${env:DB_HOST}
+      # DB_PORT: ${env:DB_PORT}
+      # DB_USERNAME: ${env:DB_USERNAME}
+      # DB_PASSWORD: ${env:DB_PASSWORD}
+      # DB_DATABASE: ${env:DB_DATABASE}
+      DB_HOST: company-logo-share-dev.cjbydkyc8ulh.ap-northeast-1.rds.amazonaws.com
+      DB_PORT: 3306
+      DB_USERNAME: root
+      DB_PASSWORD: password
+      DB_DATABASE: company-logo-share-dev
   hello:
+    # lambdaInsights: true
     image:
       name: appimage
       # workingDirectory: /app
@@ -26,3 +36,18 @@ functions:
       - http:
           path: hello
           method: get
+  createDatabase:
+    image:
+      name: appimage
+      command:
+        - src/handler.createDatabase
+    events:
+      - http:
+          path: create-database
+          method: get
+    environment:
+      DB_HOST: company-logo-share-dev.cjbydkyc8ulh.ap-northeast-1.rds.amazonaws.com
+      DB_PORT: 3306
+      DB_USERNAME: root
+      DB_PASSWORD: password
+      DB_DATABASE: company-logo-share-dev
